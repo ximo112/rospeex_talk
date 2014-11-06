@@ -1,0 +1,8 @@
+<launch>
+  <!-- launch rospeex_local (ss/sr/spi) -->
+  <include file="$(find rospeex_launch)/launch/rospeex_local.launch" />
+
+  <!-- sample node -->
+  <node name="navigation_strategy_ja" pkg="rospeex_talk" type="navigation_strategy.py" output="screen"/>
+</launch>
+
