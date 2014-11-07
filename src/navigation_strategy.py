@@ -32,10 +32,8 @@ class talk_node(object):
 	    text = u'ナビゲーションを開始します。'
 	    robot_message = 'start'
 
-#            while not rospy.is_shutdown():
             rospy.loginfo(robot_message)
             pub.publish(robot_message)
-#                r.sleep()
 
 
             print 'rospeex reply : %s' %text
