@@ -95,8 +95,7 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
-# include_directories(include)
-include_directories(
+include_directories(include
   ${catkin_INCLUDE_DIRS}
 )
 
@@ -106,7 +105,8 @@ include_directories(
 # )
 
 ## Declare a cpp executable
-#add_executable(rospeex_talk_node src/rospeex_talk_node.cpp)
+add_executable(listener src/listener.cpp)
+target_link_libraries(listener ${catkin_LIBRARIES})
 
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
