@@ -106,7 +106,9 @@ include_directories(include
 
 ## Declare a cpp executable
 add_executable(listener src/listener.cpp)
+add_executable(talker src/talker.cpp)
 target_link_libraries(listener ${catkin_LIBRARIES})
+target_link_libraries(talker ${catkin_LIBRARIES})
 
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes

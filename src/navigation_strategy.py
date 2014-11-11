@@ -12,7 +12,7 @@ import re
 from rospeex_if import ROSpeexInterface
 from std_msgs.msg import String
 
-pub = rospy.Publisher('chatter', String, queue_size=10)
+syscommand_pub = rospy.Publisher('syscommand', String, queue_size=10)
 rospy.init_node('navigation_strategy', anonymous=True)
 r = rospy.Rate(10)
 
@@ -24,16 +24,17 @@ class talk_node(object):
 
     def sr_response(self, message):
 
+        run = re.compile('(?P<run>走行)').search(message)
         start = re.compile('(?P<start>開始)').search(message)
 
 	print 'you said : %s' %message
 
-        if start is not None:
+        if run is not None and start is not None:
 	    text = u'ナビゲーションを開始します。'
-	    robot_message = 'start'
+	    robot_msg = 'start'
 
-            rospy.loginfo(robot_message)
-            pub.publish(robot_message)
+            rospy.loginfo(robot_msg)
+            syscommand_pub.publish(robot_msg)
 
 
             print 'rospeex reply : %s' %text

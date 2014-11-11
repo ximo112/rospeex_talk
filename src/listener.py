@@ -23,9 +23,9 @@ def listener():
     # run simultaenously.
     rospy.init_node('listener', anonymous=True)
 
-    rospy.Subscriber("chatter", String, callback)
+    rospy.Subscriber("syscommand", String, callback)
 
-    rospy.Subscriber("chatter", String, call)
+    rospy.Subscriber("syscommand", String, call)
     print "%s" %robot_message
 
     # spin() simply keeps python from exiting until this node is stopped
